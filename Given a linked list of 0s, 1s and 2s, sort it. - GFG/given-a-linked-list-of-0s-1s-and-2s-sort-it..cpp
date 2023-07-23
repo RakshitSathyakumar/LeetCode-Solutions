@@ -44,25 +44,25 @@ class Solution
             
             temp=temp->next;
         }
-        Node* dummy = new Node(-1);
-        Node* dummyHead = dummy;
+        // Node* dummy = new Node(-1);
+        Node* dummyHead = head;
         
         while(cnt0--){
-            Node* tx = new Node(0);
-            dummyHead->next=tx;
+            // Node* tx = new Node(0);
+            dummyHead->data=0;
             dummyHead=dummyHead->next;
         }
         while(cnt1--){
-            Node* tx = new Node(1);
-            dummyHead->next=tx;
+            // Node* tx = new Node(1);
+            dummyHead->data=1;
             dummyHead=dummyHead->next;
         }
         while(cnt2--){
-            Node* tx = new Node(2);
-            dummyHead->next=tx;
+            // Node* tx = new Node(2);
+            dummyHead->data=2;
             dummyHead=dummyHead->next;
         }
-        return dummy->next;
+        return head;
         
     }
 };
