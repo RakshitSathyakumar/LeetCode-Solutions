@@ -139,7 +139,7 @@ float findMedian(struct Node *root)
       vector<int> ans;inorder(root,ans);
       int n=ans.size();
       if(n%2 == 0){
-          return (ans[(n)/2 - 1] + ans[(n)/2])/(2*1.0);
+          return (ans[(n)/2 - 1] + ans[(n)/2])/(2.0);
       }
       return ans[n/2];
 }
