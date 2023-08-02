@@ -16,7 +16,7 @@ public:
         }
     }
     vector<vector<int>> permute(vector<int>& nums) {
-        sort(nums.begin(),nums.end());
+ 
         vector<int> ans,vis(nums.size(),0);
         vector<vector<int>> res;
         solve(0,ans,res,nums,vis);
