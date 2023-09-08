@@ -111,23 +111,18 @@ class Solution{
   public:
   void inorder(Node* root, vector<int> &ans){
       if(!root) return;
-      inorder(root->left,ans);
-      ans.push_back(root->data);
-      inorder(root->right,ans);
+      inorder(root->left,ans);ans.push_back(root->data);inorder(root->right,ans);
     }
     
     void BST(Node*root,int &ind,vector<int> &ans){
         if(!root) return;
-        BST(root->left,ind,ans);
-        root->data=ans[ind++];
-        BST(root->right,ind,ans);
+        BST(root->left,ind,ans);root->data=ans[ind++];BST(root->right,ind,ans);
     }
   
     Node *binaryTreeToBST (Node *root)
     {
         //Your code goes here
-        vector<int> ans;
-        inorder(root,ans);
+        vector<int> ans;inorder(root,ans);
         sort(ans.begin(),ans.end());
         int ind=0;BST(root,ind,ans);
         return root;
