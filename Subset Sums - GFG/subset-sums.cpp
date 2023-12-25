@@ -6,25 +6,20 @@ using namespace std;
 class Solution
 {
 public:
-    
-    void solve(int ind,vector<int> &arr,int k,vector<int> &ans)
-    {
-        if(ind == arr.size())
-        {
-            ans.push_back(k);
-            return;
-        }
-        solve(ind+1,arr,k,ans);
-        
-        // res.push_back(k);
-        solve(ind+1,arr,k+arr[ind],ans);
-    }
-    
-    vector<int> subsetSums(vector<int> arr, int N)
-    {
-        // Write Your Code here
-        vector<int> ans,res;
-        solve(0,arr,0,ans);
+    vector<int> subsetSums(vector<int> nums, int N){
+        vector<int> ans;
+        int sum=0;
+        function<void(int)> dfs=[&](int ind){
+            if(ind == nums.size()){
+                ans.push_back(sum);
+                return;
+            } 
+            dfs(ind+1);
+            sum+=nums[ind];
+            dfs(ind+1);
+            sum-=nums[ind];
+        };
+        dfs(0);
         return ans;
     }
 };
